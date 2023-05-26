@@ -18,19 +18,29 @@
         </nav>
     </header>
     <main>
-        <div class="product">
-            <img src="{% static 'products/img/baseball-glove.jpg' %}" alt="Product 1">
-            <h2>Luva de Baseball</h2>
-            <p>This is an amazing product.</p>
-            <button>Add to Cart</button>
+        <div class="product-container">
+            <div class="product">
+                <img src="{% static 'products/img/baseball-glove.png' %}" alt="Product 1">
+                <h2>Luva de Baseball</h2>
+                <p>This is an amazing product.</p>
+                <button>Add to Cart</button>
+            </div>
+		    <div class="product">
+                <img src="{% static 'products/img/basketball.png' %}" alt="Product 1">
+                <h2>Bola de basquete</h2>
+                <p>This is an amazing product.</p>
+                <button>Add to Cart</button>
+            </div>
+            <!-- You can add more products here -->
         </div>
-		<div class="product">
-            <img src="{% static 'products/img/basketball.jpg' %}" alt="Product 1">
-            <h2>Bola de basquete</h2>
-            <p>This is an amazing product.</p>
-            <button>Add to Cart</button>
-        </div>
-        <!-- You can add more products here -->
     </main>
+	<footer>
+		<form class="full-width-form" action="{% url 'check_product' %}" method="POST">{% csrf_token %}
+			<input type="text" name="suggestion" placeholder="If you couldn't find the product you want, fill this field!">
+			<button type="submit">Submit</button>
+		</form>
+	</footer>
+	
 </body>
 </html>
+
